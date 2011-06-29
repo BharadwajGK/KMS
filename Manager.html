@@ -1,0 +1,41 @@
+<html>
+<body>
+<?php
+
+	session_start();	
+	$logins =$_SESSION['login']; 
+	$con=mysqli_connect("localhost","root","","kms") or die('Error in connection !! idiot ');
+	$query1="select * from users where user_name='$logins'";
+	$res1=mysqli_query($con,$query1) or die("Error: ".mysqli_error($con));
+	$row1=mysqli_fetch_array($res1);
+	$mgrtitle=$_POST['title'];
+	$mgrbranch=$_POST['branch'];
+	$search=$_POST['Search'];
+	
+	if(isset($search))
+	{
+		if($mgrtitle != -1)
+		{
+			$query="Select user_name,firstname, lastname, email, phone, qual_name,xp from users where user_name='$logins' AND title='$mgrtitle'  order by firstname ASC ";
+			$res=mysqli_query($con, $query) or die("Error2: ".mysqli_error($con));
+			while($row=mysqli_fetch_array($res,MYSQLI_ASSOC))
+			{
+				echo '<table cellpadding=1>';
+				echo '<th>Details of Emplyoee Based on Title: '.$mgrtitle.' and Branch: '.$mgrbranch.'</th>';
+				echo '<tr class="one" ><th>FirstName</th><th>LastName</th><th>Employee ID</th><th>Email</th><th>Contact</th><th>Qualification</th><th>Experience</th></tr>';
+				echo '<tr class="two"><th>'.$row['firstname'].'</th><th>'.$row['lastname'].'</th><th>'.$row['user_name'].'</th><th>'.$row['email'].'</th><th>'.$row['phone'].'</th><th>'.$row['qual_name'].'</th><th>'.$row['xp'].'</th></tr>';
+				
+			}
+			
+		}
+		else
+			{
+				echo 'Pick any one';
+			}
+	}
+	
+	//echo '<center><iframe src="Manager.php" width="600" height="200" ></iframe></center>';
+?>	
+	
+</body>
+</html>	

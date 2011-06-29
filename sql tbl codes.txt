@@ -1,0 +1,141 @@
+create database kms;
+
+
+create table users (
+user_id char(8) not null,
+lastname varchar(15) not null,
+firstname varchar(15) not null,
+branch int(2) not null,
+title int(2) not null,
+email varchar(30) not null,
+phone varchar(20) not null,
+reg_date date,
+user_name varchar(15) not null,
+password varchar(10) not null,
+qual_name int(2),
+xp int(2), 
+access varchar (2),
+primary key (user_id),
+foreign key (branch) references branch(branch_id),
+foreign key (title) references title(title_id),
+foreign key (qual_name) references qual(qual_id),
+foreign key (xp_id) references exp(exp_id)
+);
+
+
+
+create table title(
+title_id int(3) not null auto_increment,
+title varchar(25) not null,
+primary key (title_id)
+);
+
+
+create table user_title(
+u_title int(3) not null auto_increment,
+user_id char(8) not null,
+title_id int(3) not null,
+u_start_date date,
+u_end_date date,
+primary key (u_title),
+foreign key (user_id) references users(user_id),
+foreign key (title_id) references title(title_id)
+);
+
+
+
+create table branch(
+branch_id int(3) not null auto_increment,
+branch varchar(15) not null,
+country varchar(20) not null,
+primary key (branch_id)
+);
+
+create table user_branch(
+u_branch int(3) not null auto_increment,
+user_id char(8) not null,
+branch_id int(3) not null,
+primary key (u_branch),
+foreign key (user_id) references users(user_id),
+foreign key (branch_id) references branch(branch_id)
+);
+
+
+
+create table qual(
+qual_id int(3) not null auto_increment,
+qual_name varchar(40) not null,
+primary key (qual_id)
+);
+
+
+create table user_qual(
+u_qual int(3) not null auto_increment,
+user_id char(8) not null,
+qual_id int(3) not null,
+primary key (u_qual),
+foreign key (user_id) references users(user_id),
+foreign key (qual_id) references qual(qual_id)
+);
+
+
+
+create table projects(
+project_id int(3) not null auto_increment,
+project_name varchar(40) not null,
+p_start_date date,
+p_end_date date,
+primary key (project_id)
+);
+
+create table user_project(
+u_project int(3) not null auto_increment,
+user_id char(8) not null,
+project_id int(3) not null,
+primary key (u_project),
+foreign key (user_id) references users(user_id),
+foreign key (project_id) references projects(project_id)
+);
+
+
+create table access_type(
+access_id int(3) not null auto_increment,
+access_type varchar(15) not null,
+primary key (access_id)
+);
+
+create table user_access(
+U_access int(3) not null auto_increment,
+access_id int(3) not null,
+user_id char(8) not null,
+primary key (U_access),
+foreign key (access_id) references access_type(access_id),
+foreign key (user_id) references users(user_id)
+);
+
+
+create table experience(
+exp_id int(3) not null auto_increment,
+exp_yrs varchar(15) not null,
+primary key (exp_id),
+);
+
+
+create table user_exp(
+u_exp int(3) not null auto_increment,
+user_id char(8) not null,
+exp_id int(3) not null,
+primary key (exp_id),
+foreign key (exp_id) references experience(exp_id),
+foreign key (user_id) references users(user_id)
+);
+ 
+
+
+
+
+
+
+
+
+

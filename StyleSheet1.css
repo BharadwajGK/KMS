@@ -1,0 +1,83 @@
+h4
+{
+	top=20%;	
+	left=50%;
+	
+}
+a.anchor{
+	font-style: "ms linedraw";
+}
+
+div.header {
+position: absolute;
+top: 0.001%;
+left: 1px;
+padding: 20px;
+height: 50px;
+width: 95%;
+
+}
+
+div.left {
+padding: 10px;
+position: absolute;
+left: 1px;
+top: 12%;
+width: 10%;
+height: 510px;
+border: #307D7E solid;
+background-color: #669900;
+}
+div.center {
+padding: 10px;
+position: absolute;
+top: 12%;
+left: 124px;
+height: 510px;
+width: 80%;
+border: #307D7E solid;
+}
+div.subdiv
+{
+padding: 10px;
+position: absolute;
+top: -3px;
+left: -3px;
+height: 10px;
+width: 90%;
+border: #307D7E solid;
+background-color: 	#307D7E;
+}
+div.LoginPanel {
+padding: 10px;
+position: absolute;
+top: 70px;
+left: 100px;
+height: 380px;
+width: 500px;
+
+}
+
+div.right {
+padding: 10px;
+position: absolute;
+right: 3px;
+top: 12%;
+width: 10%;
+height: 510px;
+border: #307D7E solid;
+background-color: #669900;
+}
+div.footer {
+padding: 20px;
+position: absolute;
+right:-10px;
+left: -9px;
+top: 93%;
+height: 10px;
+width: 97%;
+margin: 10px;
+padding: 10px;
+border: #307D7E solid;
+background-color: 	#FFFF00;
+}

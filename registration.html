@@ -1,0 +1,215 @@
+<html>
+<head>
+	<title>KMS Registration</title>
+	<link rel="stylesheet" type="text/css" href="StyleSheet.css" > 
+</head>
+<script type="text/javascript">
+
+	function chkValid(form)
+	{
+		var firstname=form.fname.value;
+		var lastname=form.lname.value;
+		var empid=form.eid.value;
+		var titlecombo=form.title.value;
+		var branch=form.branchoffice.value;
+		
+		
+		var illegalChars1 = /\W/;
+  		    if (illegalChars1.test(firstname)) 
+		{
+       			form.fname.style.backgroundColor="red";
+			error = "The username contains illegal characters\n";
+			alert(error);
+			return false;
+   		} 
+		
+		if((firstname.length > 15))
+		{
+				
+			form.fname.style.backgroundColor="red";
+			alert(" First Name must be less than 15 Characters");
+			return false;
+			
+		}
+		if(firstname.length===0)
+		{
+			form.fname.style.backgroundColor="red";
+			alert(" Enter Firstname");
+			return false;
+		}
+		
+
+//validation for Last name-----------------------
+		var illegalChars=/\W/;
+		
+		if (illegalChars.test(lastname)) 
+		{
+       			form.lname.style.backgroundColor="red";
+			error = "The lastname contains illegal characters\n";
+			alert(error);
+			return false;
+   		} 
+		if(lastname.length===0)
+		{
+			form.lname.style.backgroundColor="red";
+			alert(" Enter Lastname");
+			return false;
+			
+		}
+		if((lastname.length > 15))
+		{
+				
+			form.lname.style.backgroundColor="red";
+			alert(" Lastname must be less than 15 characters");
+			return false;
+			
+		}
+
+//validate Employee ID---------------------------
+		if(empid.length===0)
+		{
+			form.eid.style.backgroundColor="red";
+			alert(" Enter Employee ID");
+			return false;
+		}
+		
+		var validnum=/\d/;
+		if(!validnum.test(empid))
+		{
+       			form.eid.style.backgroundColor="red";
+			error = "The Empid contains illegal characters\n";
+			alert(error);
+			return false;
+   		} 
+			
+		
+
+//validate title-----------------
+		if (titlecombo=="-1") 
+		{
+         			 alert("Please Select Title");
+			return false;
+          				
+        	}
+
+//validate branch office---------------------------
+		
+			if (branch==="-1") 
+			{
+         				 alert("Please Select Branch");	
+				return false;
+          				
+        		}
+        			
+      			
+	
+//validate office email id-------------------------------
+		email = form.offemail.value;
+		AtPos = email.indexOf("@");
+		StopPos = email.lastIndexOf(".");
+		Message = "";
+
+		if (email == "") 
+		{
+			alert("Invalid Email Address" + "\n"); return false;
+		}
+
+		if (AtPos == -1 || StopPos == -1) 
+		{
+			alert("Invalid Email Address");	return false;
+		}
+
+		if (StopPos < AtPos) 
+		{
+			alert("Invalid Email Address");	return false;
+		}
+
+		if (StopPos - AtPos == 1) 
+		{
+			alert("Invalid Email Address");	return false;
+		}
+		
+
+//validate office phone no-----------------------
+		if(isNaN( form.offph.value ))
+		{
+			alert("Enter a phone number in proper format");
+			return false;
+		}
+		if(((form.offph.value.length)<8) || ((form.offph.value.length)>15))
+		{
+			alert("Invalid Phone Number");	return false;
+		}
+
+	return true;
+}
+	
+	
+</script>	
+<body>
+
+	<div class="header">
+		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <font size=15pt>KMS</font>
+	</div>
+
+	<div class="left">
+		
+	</div>
+
+	<div class="center">
+		
+		<div class="subdiv">
+			
+			</br></br>
+				
+				<p class="para">
+					
+					<form id="regform" name="regform" method="POST"  action="reg.php " onsubmit="chkValid(this)"  >
+						<center>
+							<b><font face"ms linedraw" size=5pt >New KMS Account </font></b></br></br>
+							Complete the form below to register for your new KMS account </br></br>
+							Once your request has been processed, you will receive an e-mail in 2-3 days containing KMS username and password.
+							</br></br></br>
+							<table>
+							
+								<tr><td cellspacing="100">Firstname:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><input type="text" name="fname" id="fname" /></td></tr>
+								<tr><td>Lastname:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><input type="text" name="lname" id="lname" /></td></tr>
+								<tr><td>Employee ID number:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><input type="text" name="eid" id="eid"/></td></tr>
+								<tr><td>Title:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><select name="title" id="title">
+  									<option value="-1">Select</option>
+									<option value="1">Business Analyst</option>
+  									<option value="2">System Analyst</option>
+  									<option value="3">Infrastructure Analyst </option>
+ 									<option value="4">Change Analyst</option>
+									<option value="5">Manager</option>
+								</select></td></tr>
+								<tr><td>Branch Office:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><select name="branchoffice" id="branchoffice" >
+  									<option value="-1">Select</option>
+									<option value="1">Bangalore</option>
+  									<option value="2">New York</option>
+  									<option value="3">Madrid </option>
+ 									<option value="4">Waterford</option>
+								</select></td></tr>
+								<tr><td>Office Email ID:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><input type="text" name="offemail" id="offemail"/></td></tr>
+								<tr><td>Office Phone number:&nbsp &nbsp &nbsp &nbsp &nbsp </td><td><input type="text" name="offph" id="offph"/></td></tr>
+							</table></br></br>
+							<input type="Submit"  name="submit" value="              Submit                
+Request"  />
+						</center>
+						
+
+					</form>
+				</p>
+			
+		</div>
+	</div>
+
+	<div class="right">
+		
+	</div>
+	<div class="footer">
+	<center> <font face="ms linedraw" size=2pt>@2011 KMS inc </font></center>
+	</div>
+
+</body>
+</html>

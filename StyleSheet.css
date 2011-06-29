@@ -1,0 +1,79 @@
+html, body {
+height: 100%;
+}
+
+h4
+{
+	top=20%;	
+	left=50%;
+	
+}
+a.anchor{
+	font-style: "ms linedraw";
+}
+
+div.header 
+{
+	float: left;
+	width:99.3%;
+	background-color:#C8BBBE;
+}
+
+div.left 
+{
+	float:left;
+	width:10%;
+	height:85%;
+	border: #307D7E solid;
+	background-color: #669900;
+}
+
+div.center 
+{
+ 	float:left;
+	width:78%;
+	height:85%;
+	border: #307D7E solid;
+	
+}
+div.subdiv
+{
+	float:left;
+	width:100%;
+	height:5%;
+	border: #307D7E solid;
+	background-color: #307D7E;
+}
+div.LoginPanel
+{
+	float:left;
+	width:99.6%;
+	height:89%;
+	//background-color:	#E6A9EC;	
+	
+}
+.para
+{
+	
+	width:20%;
+	height:20%;
+	//background-color:	#E6A9EC;
+}
+
+div.right 
+{
+	float:left;
+	border: #307D7E solid;
+	background-color: #669900;
+	width:10.1%;
+	height:85%;
+}
+
+div.footer 
+{
+	
+	clear:both;
+	border: #307D7E solid;
+	background-color: #FFFF00;
+	width:99%;
+}
